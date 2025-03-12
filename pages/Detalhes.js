@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import * as SecureStore from "expo-secure-store";
 
 const TextoExibido = ({ titulo, texto, cor }) => (
     <Text style={[styles.texto, { color: cor }]}>
@@ -9,8 +8,7 @@ const TextoExibido = ({ titulo, texto, cor }) => (
 );
 
 export default function DetalhesScreen({ route }) {
-    
-    const { textoNaoPersistido } = route.params || {};
+    const { textoNaoPersistido } = route.params;
 
     const [textoPersistido, setTextoPersistido] = useState("");
 
@@ -34,22 +32,19 @@ export default function DetalhesScreen({ route }) {
 }
 
 const styles = StyleSheet.create({
-
     container: {
-        flex: 1, 
-        gap: 50, 
-        paddingVertical: 100, 
+        flex: 1,
+        gap: 50,
+        paddingVertical: 100,
         paddingHorizontal: 25,
     },
-
     titulo: {
-        fontSize: 32, 
-        textAlign: "center", 
-        textDecorationLine: "underline", 
+        fontSize: 32,
+        textAlign: "center",
+        textDecorationLine: "underline",
     },
-
     texto: {
-        fontSize: 20, 
-        textAlign: "center", 
+        fontSize: 20,
+        textAlign: "center",
     },
 });

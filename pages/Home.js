@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"; 
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
-import * as SecureStore from "expo-secure-store"; 
+
 
 const TextoExibido = ({ titulo, texto, cor }) => (
     <Text style={[styles.texto, { color: cor }]}>
@@ -33,8 +33,7 @@ export default function HomeScreen({ navigation }) {
         setTextoSalvoSemPersistencia(texto); 
         setTexto(""); 
     };
-
-    const limparTexto = async () => {
+const limparTexto = async () => {
         await SecureStore.deleteItemAsync("meuTexto"); 
         setTextoPersistido(""); 
         setTextoSalvoSemPersistencia(""); 
@@ -70,9 +69,7 @@ export default function HomeScreen({ navigation }) {
             </TouchableOpacity>
         </View>
     );
-}
-
-const styles = StyleSheet.create({
+}const styles = StyleSheet.create({
     container: {
         flex: 1, 
         paddingVertical: 100,
